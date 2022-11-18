@@ -1,0 +1,31 @@
+<%= form_with model: article do |form| %>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">
+            <%= form.label :title %>
+        </label>
+        <%= form.text_field :title %>
+        <%= article.errors.full_messages_for(:title).each do |message| %> 
+            <div><%= message %></div>
+        <% end %>
+    </div>
+    
+    <div class="mb-3" style="align-items: center; display: flex;">
+        <label for="exampleFormControlInput1" class="form-label">
+            <%= form.label :body %>
+        </label>
+        <%= form.text_area :body %>
+        <%= @article.errors.full_messages_for(:body).each do |message| %> 
+            <div><%= message %></div>
+        <% end %>        
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">
+            <%= form.label :status %>
+        </label>
+        <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+    </div>
+
+    <div>
+        <%= form.submit color: :blue%>     
+    </div>
+<% end %>

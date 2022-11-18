@@ -1,0 +1,26 @@
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+  <p>
+    <label for="exampleFormControlInput1" class="form-label">
+      <%= form.label :commenter %>
+    </label>
+    <%= form.text_field :commenter %>
+  </p>
+
+  <p style="align-items: center; display: flex;>
+    <label for="exampleFormControlInput1" class="form-label">
+      <%= form.label :body %>
+    </label>
+    <%= form.text_area :body %>
+  </p>
+
+  <p>
+    <label for="exampleFormControlInput1" class="form-label">
+      <%= form.label :status %>
+    </label>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  </p>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
